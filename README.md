@@ -19,20 +19,20 @@
 
 ### How to start PSQL?<a id="how-to-start-psql"></a>
 * Open terminal window
-* Type `psql (name of the database)`
+* Type `psql postgres` OR `psql name-of-db`
 
 ### How to create a database?<a id="how-to-create-db"></a>
-* From inside of `psql`, run `CREATE DATABASE db-name`
-* Alternate option would be to run `createdb db-name` from the terminal.
+* From inside of `psql`, run `CREATE DATABASE testdb`
+* Alternate option would be to run `createdb testdb` from the terminal.
 
 ### How to connect to a database?<a id="connect-to-db"></a>
-* From inside of `psql`, run `\c db-name`
+* From inside of `psql`, run `\c testdb`
 
 ### How to create a table?<a id="create-a-table"></a>
-* From inside of `psql`, run `CREATE TABLE db-name(id SERIAL, whateverElseWithType);`
+* From inside of `psql`, run `CREATE TABLE people(id SERIAL, name VARCHAR(255), age INT);`
 
 ### How to insert data into table?<a id="insert-data-into-table"></a>
-* From inside of `psql`, run `INSERT INTO table-name VALUES(DEFAULT, theRest);`
+* From inside of `psql`, run `INSERT INTO people VALUES(DEFAULT, 'james', 44);`
 * From inside of `psql`, run `INSERT INTO people(name, age) VALUES('james', 44);`
 
 ### How to update data inside table?<a id="update-data-inside-table"></a>
