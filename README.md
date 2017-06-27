@@ -65,9 +65,9 @@
 <h3 id="get-average-of-values">How to average the values in a single column?</h3>
 * From inside of `psql`, run `SELECT AVG(age) FROM people;`
 
-<h3 id="get-part-of-date-field">How to get part of a date field?</h3>
+<h3 id="get-part-of-date-field">How to get part of a date/timestamp field?</h3>
 * From inside of `psql`, run `SELECT date_part('unit', date(date_column)) FROM tablename;` <br>
-    <p>'Unit' is a predefined abbreviation depending on what you are trying to display. See [Table 9-22. Template Patterns for Date/Time Formatting](https://www.postgresql.org/docs/9.4/static/functions-formatting.html#FUNCTIONS-FORMATTING-DATETIME-TABLE) for a list of possibilities. Some examples are: </p>
-YYYY - 4 digit representation of the year<br>
-YY - 2 digit repesentation of the year<br>
-Mon - Capitalized 3 digit abbreviation of the month<br> 
+    <p>'Unit' is a predefined abbreviation depending on what you are trying to display. See [9.9.1. EXTRACT, date_part](https://www.postgresql.org/docs/current/static/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT) for a list of possibilities. Some examples are: </p>
+year - 4 digit representation of the year<br>
+month - numerical representation of the month<br>
+hour - numerical representation of the hour
