@@ -70,7 +70,7 @@
 
 
 ### How to generate a project with knex built in?<a id="total-number-of-entries"></a>
-* From inside of the terminal, run `dbconfig knex scaffold --dbname=somedb --create-dir=somefoldername`
+* From inside of the terminal, run `dbconfig knex scaffold --dbname=people --create-dir=somefoldername`
 * `cd` into child directory you just created
 * Run `createdb somedb`
 * Run `npm install`
