@@ -16,8 +16,6 @@
 * [How do I get the sum of values of a column in `psql`](#sum-of-values)
 * [How do I get the average of values of a column in `psql`](#get-average-of-values)
 
-#### Knex
-
 
 
 ### How to start PSQL?<a id="how-to-start-psql"></a>
@@ -68,6 +66,8 @@
 ### How to average the values in a single column?<a id="get-average-of-values"></a>
 * From inside of `psql`, run `SELECT AVG(age) FROM people;`
 
+
+## Knex
 
 ### How to generate a project with knex built in?<a id="total-number-of-entries"></a>
 * From inside of the terminal, run `dbconfig knex scaffold --dbname=people --create-dir=somefoldername`
