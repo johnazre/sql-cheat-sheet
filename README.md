@@ -99,3 +99,42 @@ exports.down = function(knex, Promise) {
 ### How to create a seed file for knex?<a id="total-number-of-entries"></a>
 * From inside of the terminal, run `knex seed:make people_seed_file`
 
+### How to add data to a seed file using knex?<a id="total-number-of-entries"></a>
+* From inside of the seed file, add the dummy data. Example:
+```
+exports.seed = function(knex, Promise) {
+  // Deletes ALL existing entries
+  return knex('people').del()
+    .then(function () {
+      // Inserts seed entries
+      return knex('people').insert([
+        {name: 'james taylor', age: 22, email: 'j@t.com'},
+        {name: 'john daly', age: 29, email: 'j@d.com'},
+        {name: 'jimmy buffett', age: 44, email: 'j@b.com'},
+      ]);
+    });
+};
+
+```
+
+### How to return all data from GET API route?
+* Inside of the routes file, add the following:
+```
+app.get('/people', function(req, res) {
+  knex.raw(`select * from people`).then(function(people) {
+    res.send(people.rows);
+  });
+});
+```
+
+### How to add data with POST API route?
+* Inside of the routes file, add the following:
+```
+app.post('/people', function(req, res) {
+  knex.raw(`insert into people(name, age, email) values('${req.body.name}', ${req.body.age}, '${req.body.email}')`).then(function() {
+    knex.raw(`select * from people`).then(function(people) {
+      res.send(people.rows);
+    });
+  })
+})
+```
