@@ -16,6 +16,13 @@
 * [How do I get the sum of values of a column in `psql`](#sum-of-values)
 * [How do I get the average of values of a column in `psql`](#get-average-of-values)
 
+* [How do I generate a project with knex built in?](#generate-knex-project)
+* [How do I create a migration file for knex?](#create-migration-file)
+* [How do I create a table with the migration file?](#create-migration-file)
+* [How do I create a seed file for knex?](#create-seed-file)
+* [How do I add data to a seed file using knex?](#add-data-to-seed-file)
+* [How to return all data from GET API route?](#return-all-data)
+* [How to add data with POST API route?](#add-data)
 
 
 ### How to start PSQL?<a id="how-to-start-psql"></a>
@@ -69,16 +76,19 @@
 
 ## Knex
 
-### How to generate a project with knex built in?<a id="total-number-of-entries"></a>
+<a id="generate-knex-project"></a>
+### How do I generate a project with knex built in?
 * From inside of the terminal, run `dbconfig knex scaffold --dbname=people --create-dir=somefoldername`
 * `cd` into child directory you just created
 * Run `createdb somedb`
 * Run `npm install`
 
-### How to create a migration file for knex?<a id="total-number-of-entries"></a>
+<a id="create-migration-file"></a>
+### How do I create a migration file for knex?
 * From inside of the terminal, run `knex migrate:make create_people_table`
 
-### How to create a table with the migration file?<a id="total-number-of-entries"></a>
+<a id="create-a-table"></a>
+### How do I create a table with the migration file?
 * From inside of the `create_people_table` migration file, add columns. Example:
 ```
 exports.up = function(knex, Promise) {
@@ -92,14 +102,16 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-
+  return knex.schema.createTable('people');
 };
 ```
 
-### How to create a seed file for knex?<a id="total-number-of-entries"></a>
+<a id="create-seed-file"></a>
+### How do I create a seed file for knex?
 * From inside of the terminal, run `knex seed:make people_seed_file`
 
-### How to add data to a seed file using knex?<a id="total-number-of-entries"></a>
+<a id="add-data-to-seed-file"></a>
+### How do I add data to a seed file using knex?
 * From inside of the seed file, add the dummy data. Example:
 ```
 exports.seed = function(knex, Promise) {
@@ -117,6 +129,7 @@ exports.seed = function(knex, Promise) {
 
 ```
 
+<a id="return-all-data"></a>
 ### How to return all data from GET API route?
 * Inside of the routes file, add the following:
 ```
@@ -127,6 +140,7 @@ app.get('/people', function(req, res) {
 });
 ```
 
+<a id="add-data"></a>
 ### How to add data with POST API route?
 * Inside of the routes file, add the following:
 ```
