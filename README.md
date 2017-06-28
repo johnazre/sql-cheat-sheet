@@ -24,53 +24,66 @@
 * [How to return all data from GET API route?](#return-all-data)
 * [How to add data with POST API route?](#add-data)
 
-
-### How to start PSQL?<a id="how-to-start-psql"></a>
+<a id="how-to-start-psql"></a>
+### How to start PSQL?
 * Open terminal window
 * Type `psql postgres` OR `psql name-of-db`
 
-### How to create a database?<a id="how-to-create-db"></a>
+<a id="how-to-create-db"></a>
+### How to create a database?
 * From inside of `psql`, run `CREATE DATABASE testdb`
 * Alternate option would be to run `createdb testdb` from the terminal.
 
-### How to connect to a database?<a id="connect-to-db"></a>
+<a id="connect-to-db"></a>
+### How to connect to a database?
 * From inside of `psql`, run `\c testdb`
 
-### How to create a table?<a id="create-a-table"></a>
+<a id="create-a-table"></a>
+### How to create a table?
 * From inside of `psql`, run `CREATE TABLE people(id SERIAL, name VARCHAR(255), age INT);`
 
-### How to insert data into table?<a id="insert-data-into-table"></a>
+<a id="insert-data-into-table"></a>
+### How to insert data into table?
 * From inside of `psql`, run `INSERT INTO people VALUES(DEFAULT, 'james', 44);`
 * From inside of `psql`, run `INSERT INTO people(name, age) VALUES('james', 44);`
 
-### How to update data inside table?<a id="update-data-inside-table"></a>
+<a id="update-data-inside-table"></a>
+### How to update data inside table?
 * From inside of `psql`, run `UPDATE people SET age = 33 WHERE name = 'james';`
 
-### How to delete data from table?<a id="delete-data-from-table"></a>
+<a id="delete-data-from-table"></a>
+### How to delete data from table?
 * From inside of `psql`, run `DELETE FROM people WHERE name = 'james';`
 
-### How to query data from table?<a id="query-data-from-table"></a>
+<a id="query-data-from-table"></a>
+### How to query data from table?
 * From inside of `psql`, run `SELECT * FROM people;`
 * From inside of `psql`, run `SELECT name FROM people;`
 * From inside of `psql`, run `SELECT * FROM people WHERE age > 30;`
 
-### How to get a list of tables?<a id="get-list-of-tables"></a>
+<a id="get-list-of-tables"></a>
+### How to get a list of tables?
 * From inside of `psql`, run `\d`
 
-### How to get a columns from a table?<a id="get-columns-of-tables"></a>
+<a id="get-columns-of-tables"></a>
+### How to get a columns from a table?
 * From inside of `psql`, run `\d people`
 
-### How to get add column to an existing table?<a id="add-a-new-column"></a>
+<a id="add-a-new-column"></a>
+### How to get add column to an existing table?
 * From inside of `psql`, run `ALTER TABLE people ADD COLUMN hair VARCHAR(50);`
 
-### How to get a total number of entries in a table?<a id="total-number-of-entries"></a>
+<a id="total-number-of-entries"></a>
+### How to get a total number of entries in a table?
 * From inside of `psql`, run `SELECT COUNT(*) FROM people;`
 * From inside of `psql`, run `SELECT COUNT(*) FROM people WHERE age < 40;`
 
-### How to sum the values in a single column?<a id="sum-of-values"></a>
+<a id="sum-of-values"></a>
+### How to sum the values in a single column?
 * From inside of `psql`, run `SELECT SUM(age) FROM people;`
 
-### How to average the values in a single column?<a id="get-average-of-values"></a>
+<a id="get-average-of-values"></a>
+### How to average the values in a single column?
 * From inside of `psql`, run `SELECT AVG(age) FROM people;`
 
 
