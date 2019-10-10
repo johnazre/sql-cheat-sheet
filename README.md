@@ -98,11 +98,11 @@
 
 <a id="create-migration-file"></a>
 ### How do I create a migration file for knex?
-* From inside of the terminal, run `knex migrate:make create_people_table`
+* From inside of the terminal, run `knex migrate:make 01_people`
 
 <a id="create-a-table"></a>
 ### How do I create a table with the migration file?
-* From inside of the `create_people_table` migration file, add columns. Example:
+* From inside of the `01_people_table` migration file, add columns. Example:
 ```
 exports.up = function(knex) {
   return knex.schema.createTable('people', function(table) {
