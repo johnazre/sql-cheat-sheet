@@ -104,7 +104,7 @@
 ### How do I create a table with the migration file?
 * From inside of the `create_people_table` migration file, add columns. Example:
 ```
-exports.up = function(knex, Promise) {
+exports.up = function(knex) {
   return knex.schema.createTable('people', function(table) {
     table.increments();
     table.string('name').notNullable();
@@ -114,20 +114,20 @@ exports.up = function(knex, Promise) {
   });
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function(knex) {
   return knex.schema.createTable('people');
 };
 ```
 
 <a id="create-seed-file"></a>
 ### How do I create a seed file for knex?
-* From inside of the terminal, run `knex seed:make people_seed_file`
+* From inside of the terminal, run `knex seed:make 01_people`
 
 <a id="add-data-to-seed-file"></a>
 ### How do I add data to a seed file using knex?
 * From inside of the seed file, add the dummy data. Example:
 ```
-exports.seed = function(knex, Promise) {
+exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex('people').del()
     .then(function () {
