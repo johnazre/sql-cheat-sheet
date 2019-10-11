@@ -115,7 +115,8 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.createTable('people');
+  return knex.schema.dropTable('users')
+  
 };
 ```
 
