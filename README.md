@@ -23,6 +23,9 @@
 * [How do I add data to a seed file using knex?](#add-data-to-seed-file)
 * [How to return all data from GET API route?](#return-all-data)
 * [How to add data with POST API route?](#add-data)
+* [How to update data with PATCH API route?](#update-data)
+* [How to delete data with DELETE API route?](#delete-data)
+
 
 <a id="how-to-start-psql"></a>
 ### How to start PSQL?
@@ -165,4 +168,36 @@ app.post('/people', function(req, res) {
     });
   })
 })
+```
+
+<a id="update-data"></a>
+### How to update data with PATCH API route?
+* Inside of the routes file, add the following:
+```
+app.patch("/people/:id", (req, res) => {
+  knex
+    .raw(
+      `UPDATE people SET name = '${req.body.name}', email = '${
+        req.body.email
+      }', age = '${req.body.age}' WHERE id = ${Number(req.params.id)}`
+    )
+    .then(function(users) {
+      res.send(users.rows);
+    })
+    .catch(err => res.status(400).send('bad request');
+});
+```
+
+<a id="delete-data"></a>
+### How to delete data with DELETE API route?
+* Inside of the routes file, add the following:
+```
+app.delete("/people/:id", (req, res) => {
+  knex
+    .raw(`DELETE FROM users WHERE id = ${req.params.id}`)
+    .then(function(people) {
+      res.send(people.rows);
+    })
+    .catch(err => res.status(400).send('bad request');
+});
 ```
